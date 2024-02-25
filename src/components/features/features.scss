@@ -1,0 +1,119 @@
+@use "../../sass/abstracts" as *;
+#features {
+  margin-top: 110px;
+  margin-bottom: 40px;
+  padding-bottom: 90px;
+  border-bottom-left-radius: 60%;
+  border-bottom-right-radius: 60%;
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    180deg,
+    rgb(255, 255, 255) 50%,
+    rgb(231, 231, 231) 100%
+  );
+  .features__container {
+    @include flexbox(column, center, center);
+    h1 {
+      @include heading(m);
+      color: $content;
+      max-width: 540px;
+      text-align: center;
+    }
+    .cards {
+      width: 100%;
+      margin-top: 80px;
+      margin-bottom: 60px;
+      @include grid(4, 20px);
+      .card {
+        width: 240px;
+        @include flexbox(column, start, start);
+        .top {
+          @include flexbox(row, center, center);
+          margin-bottom: 25px;
+        }
+        .bottom {
+          h4 {
+            @include heading(xs);
+            color: $content;
+            margin-bottom: 13px;
+          }
+          p {
+            @include text(s);
+            line-height: 26px;
+          }
+        }
+      }
+    }
+    button {
+      @include button(15px, 32px, white, 16px, $mainColor);
+      text-transform: uppercase;
+      font-weight: 700;
+      &:hover {
+        background-color: rgb(0, 101, 90);
+      }
+    }
+  }
+  @include media(1060px) {
+    .features__container {
+      .cards {
+        .card {
+          width: 200px;
+        }
+      }
+    }
+  }
+  @include media(920px) {
+    background-color: #fff;
+    background: none;
+    border-radius: 0;
+    .features__container {
+      .cards {
+        @include flexbox(row, space-around, start);
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+    }
+  }
+  @include media(768px) {
+    margin-bottom: 10px;
+    .features__container {
+      h1 {
+        @include heading(s);
+        line-height: 40px;
+      }
+    }
+  }
+  @include media(480px) {
+    margin-top: 80px;
+    padding-bottom: 70px;
+    .features__container {
+      h1 {
+        font-size: 25px;
+        line-height: 35px;
+      }
+      .cards {
+        margin-top: 60px;
+        width: 100%;
+        gap: 40px;
+        .card {
+          width: 100%;
+          .top {
+            margin-bottom: 15px;
+          }
+          .bottom {
+            h4 {
+              margin-bottom: 10px;
+            }
+            p {
+              line-height: 22px;
+            }
+          }
+        }
+      }
+      button {
+        padding: 8px 20px;
+        font-size: 14px;
+      }
+    }
+  }
+}

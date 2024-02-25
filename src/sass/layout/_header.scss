@@ -1,0 +1,185 @@
+@use "../abstracts" as *;
+
+header {
+  padding: 20px 0;
+  .header__container {
+    width: 100%;
+    @include flexbox(row, space-between, center);
+    .left {
+      a {
+        @include flexbox(row, space-between, center);
+        gap: 15px;
+        h2 {
+          @include heading(s);
+          color: $darkBlue;
+        }
+      }
+    }
+    .right {
+      @include flexbox(row, space-between, center);
+      gap: 25px;
+      nav {
+        ul {
+          @include flexbox(row, space-between, center);
+          gap: 25px;
+          li {
+            a {
+              @include text(s);
+              color: $content;
+              font-weight: 500;
+              line-height: 2;
+              position: relative;
+              &::before {
+                content: "";
+                width: 0;
+                height: 2px;
+                border-radius: 2px;
+                background-color: $mainColor;
+                position: absolute;
+                bottom: -0.2rem;
+                right: 0;
+                transition: right 0.4s, width 0.4s, left 0.4s;
+              }
+              &:hover::before {
+                width: 100%;
+                left: 0;
+              }
+            }
+          }
+        }
+      }
+      .buttons {
+        @include flexbox(row, space-between, center);
+        gap: 25px;
+        .in,
+        .up {
+          @include button(9px, 24px, $content, 16px, transparent);
+          border: 1px solid $borderColor;
+          font-weight: 600;
+          &:hover {
+            background-color: $mainColor;
+            border-color: $mainColor;
+            color: white;
+          }
+        }
+        .up {
+          background-color: $mainColor;
+          border-color: $mainColor;
+          color: white;
+          &:hover {
+            background-color: rgb(0, 101, 90);
+          }
+        }
+        .mode {
+          border-radius: 50%;
+          padding: 3px;
+          @include flexbox(row, center, center);
+          height: 32px;
+          width: 32px;
+          border: none;
+          cursor: pointer;
+        }
+      }
+      .responsive__menu {
+        display: none;
+      }
+    }
+  }
+  @include media(950px) {
+    .header__container {
+      .right {
+        nav {
+          display: none;
+        }
+        .responsive__menu {
+          display: block;
+          #toggleMenu {
+            @include flexbox(row, center, center);
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            svg {
+              @include flexbox(row, center, center);
+            }
+          }
+        }
+        .buttons {
+          .mode {
+            height: 40px;
+            width: 40px;
+            svg {
+              width: 28px;
+              height: 28px;
+            }
+          }
+        }
+      }
+    }
+  }
+  @include media(768px) {
+    .header__container {
+      .left {
+        a {
+          svg {
+            width: 35px;
+            height: 35px;
+          }
+          h2 {
+            font-size: 25px;
+          }
+        }
+      }
+      .right {
+        .buttons {
+          .in,
+          .up {
+            padding: 7px 18px;
+          }
+        }
+      }
+    }
+  }
+  @include media(600px) {
+    .header__container {
+      .right {
+        .buttons {
+          .in,
+          .up {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+  @include media(420px) {
+    .header__container {
+      .left {
+        a {
+          h2 {
+            font-size: 22px;
+          }
+        }
+      }
+      .right {
+        .buttons {
+          .mode {
+            width: 35px;
+            height: 35px;
+            svg {
+              width: 25px;
+              height: 25px;
+            }
+          }
+        }
+        .responsive__menu {
+          #toggleMenu {
+            svg {
+              width: 35px;
+              height: 35px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

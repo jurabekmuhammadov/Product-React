@@ -1,0 +1,146 @@
+@use "../../sass/abstracts" as *;
+
+#clients {
+  margin-bottom: 157px;
+  .clients__container {
+    @include flexbox(column, start, center);
+    gap: 50px;
+    .title {
+      max-width: 537px;
+      text-align: center;
+      @include flexbox(column, center, center);
+      gap: 10px;
+      h1 {
+        @include heading(m);
+        color: $content;
+      }
+      p {
+        @include text(s);
+        color: $content;
+        font-weight: 500;
+      }
+    }
+    .cards {
+      @include flexbox(row, space-between, center);
+      gap: 60px;
+      width: 100%;
+      .card {
+        border: 1px solid #dedede;
+        border-radius: 8px;
+        width: 33%;
+        padding: 26px;
+        @include flexbox(column, start, start);
+        gap: 16px;
+        .top {
+          p {
+            margin-top: 16px;
+            @include text(s);
+            color: $textBold;
+          }
+        }
+        .bottom {
+          @include flexbox(row, start, center);
+          gap: 14px;
+          .avatar {
+            @include flexbox(row, center, center);
+            img {
+              width: 100%;
+            }
+          }
+          .info {
+            h4 {
+              @include text(s);
+              font-weight: 700;
+              color: $mainColor;
+            }
+            span {
+              @include text(s);
+              font-size: 14px;
+              font-weight: 500;
+              color: $content;
+            }
+          }
+        }
+      }
+    }
+  }
+  @include media(1024px) {
+    .clients__container {
+      .cards {
+        gap: 30px;
+      }
+    }
+  }
+  @include media(768px) {
+    margin-bottom: 100px;
+    .clients__container {
+      .title {
+        h1 {
+          font-size: 30px;
+          line-height: 40px;
+        }
+      }
+      .cards {
+        flex-direction: column;
+        .card {
+          width: 100%;
+        }
+      }
+    }
+  }
+  @include media(480px) {
+    .clients__container {
+      .title {
+        h1 {
+          font-size: 25px;
+          line-height: 35px;
+        }
+      }
+    }
+  }
+  @include media(420px) {
+    .clients__container {
+      .title {
+        p {
+          font-size: 14px;
+          line-height: 22px;
+        }
+      }
+      .cards {
+        gap: 12px;
+        .card {
+          padding: 18px;
+          .top {
+            span {
+              img {
+                width: 80px;
+              }
+            }
+            p {
+              margin-top: 12px;
+              font-size: 14px;
+              line-height: 22px;
+            }
+          }
+          .bottom {
+            .avatar {
+              img {
+                width: 40px;
+                height: 40px;
+              }
+            }
+            .info {
+              h4 {
+                font-size: 15px;
+                line-height: 20px;
+              }
+              span {
+                font-size: 14px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

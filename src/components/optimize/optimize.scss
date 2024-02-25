@@ -1,0 +1,104 @@
+@use "../../sass/abstracts" as *;
+
+#optimize {
+  margin-bottom: 50px;
+  .optimize__container {
+    .banner {
+      height: 350px;
+      width: 100%;
+      border-radius: 32px;
+      background-color: $mainColor;
+      @include flexbox(row, space-between, start);
+      .contents {
+        height: 100%;
+        padding: 50px;
+        @include flexbox(column, space-between, start);
+        h1 {
+          font-size: 32px;
+          font-weight: 600;
+          line-height: 48px;
+          max-width: 510px;
+          color: white;
+        }
+        button {
+          @include button(12px, 35px, $mainColor, 20px, white);
+          border-radius: 8px;
+          font-weight: 600;
+          &:hover {
+            background-color: #d6fffa;
+          }
+        }
+      }
+      .pages {
+        height: 100%;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+          @include flexbox(row, center, center);
+        }
+      }
+    }
+  }
+  @include media(800px) {
+    .optimize__container {
+      .banner {
+        .contents {
+          h1 {
+            font-size: 28px;
+            line-height: 40px;
+          }
+        }
+      }
+    }
+  }
+  @include media(680px) {
+    .optimize__container {
+      .banner {
+        height: auto;
+        width: auto;
+        flex-direction: column;
+        .contents {
+          padding: 30px;
+          width: 100%;
+          height: auto;
+          gap: 20px;
+          align-items: center;
+          text-align: center;
+        }
+        .pages {
+          width: 100% !important;
+          height: auto;
+        }
+      }
+    }
+  }
+  @include media(480px) {
+    .optimize__container {
+      .banner {
+        .contents {
+          h1 {
+            font-size: 25px;
+            line-height: 35px;
+          }
+        }
+      }
+    }
+  }
+  @include media(420px) {
+    .optimize__container {
+      .banner {
+        .contents {
+          h1 {
+            font-size: 22px;
+            line-height: 30px;
+          }
+          button {
+            padding: 8px 20px;
+            font-size: 16px;
+          }
+        }
+      }
+    }
+  }
+}
